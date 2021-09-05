@@ -7,13 +7,13 @@
 {% block main %}
     <main class="mainAdmin">
         <section class="sectionAdmin">
-           <h1 class="welcomeAdmin">Bienvenue, Administrateur {# {{ app.user.userIdentifier }}#} </h1>
+           <h1 class="welcomeAdmin">Bienvenue, {{ app.user.firstname }} </h1>
             <h2 class="tAdmin">Gestion</h2>
             <div>
                 <a href="{{ path('admin_articles_list') }}" class="aAdmin">
                     <div class="btnAdmin">
-                        <span class="material-icons">cached</span>
-                        <p class="pGestion"> Gestion des articles</p>
+                        <span class="material-icons">more_horiz</span>
+                        <p class="pGestion"> Derniers articles</p>
                     </div>
                 </a>
                 <table class="tableAdmin">
@@ -40,8 +40,8 @@
             <div>
                 <a href="{{ path('admin_categories_list') }}" class="aAdmin">
                     <div class="btnAdmin">
-                        <span class="material-icons">cached</span>
-                        <p class="pGestion"> Gestion des catégories</p>
+                        <span class="material-icons">more_horiz</span>
+                        <p class="pGestion"> Dernières catégories</p>
                     </div>
                 </a>
                 <table class="tableAdmin">
@@ -65,8 +65,8 @@
             <div>
                 <a href="{{ path('admin_filters_list') }}" class="aAdmin">
                     <div class="btnAdmin">
-                        <span class="material-icons">cached</span>
-                        <p class="pGestion"> Gestion des filtres</p>
+                        <span class="material-icons">more_horiz</span>
+                        <p class="pGestion"> Derniers filtres</p>
                     </div>
                 </a>
                 <table class="tableAdmin">
@@ -90,8 +90,8 @@
             <div>
                 <a href="{{ path('admin_medias_list') }}" class="aAdmin">
                     <div class="btnAdmin">
-                        <span class="material-icons">cached</span>
-                        <p class="pGestion"> Gestion des médias</p>
+                        <span class="material-icons">more_horiz</span>
+                        <p class="pGestion">Derniers médias</p>
                     </div>
                 </a>
                 <table class="tableAdmin">
@@ -117,8 +117,8 @@
             <div>
                 <a href="{{ path('admin_types_list') }}" class="aAdmin">
                     <div class="btnAdmin">
-                        <span class="material-icons">cached</span>
-                        <p class="pGestion"> Gestion des types d'article</p>
+                        <span class="material-icons">more_horiz</span>
+                        <p class="pGestion">Derniers types d'article</p>
                     </div>
                 </a>
                 <table class="tableAdmin">
@@ -139,21 +139,32 @@
                 </table>
             </div>
 
+            <div>
+                <a href="{{ path('admin_users_list') }}" class="aAdmin">
+                    <div class="btnAdmin">
+                        <span class="material-icons">more_horiz</span>
+                        <p class="pGestion">Derniers utilisateurs</p>
+                    </div>
+                </a>
+                <table class="tableAdmin">
+                    <thead>
+                    <th>Prénom</th>
+                    <th>Nom</th>
+                    <th>Email</th>
+                    </thead>
+                    <tbody>
+                    {% for user in users %}
+                        <tr>
+                            <td>{{ user.firstname }}</td>
+                            <td>{{ user.name }}</td>
+                            <td>{{ user.email }}</td>
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+
 
         </section>
-       {#<nav class="navAdmin">
-            <ul>
-                <li class="navLink">
-                    <a href="{{ path('admin_logged') }}" class="aNavAdmin">
-                        <span class="material-icons">home</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="{{ path('admin_logout') }}" class="aNavAdmin">
-                        <span class="material-icons">logout</span>
-                    </a>
-                </li>
-            </ul>
-        </nav> #}
     </main>
 {% endblock %}

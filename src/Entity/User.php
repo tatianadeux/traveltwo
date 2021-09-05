@@ -40,12 +40,13 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
 
     /**
      * @ORM\Column(type="string", length=255)
-     * @Assert\NotBlank(message="Veuillez remplir le champ 'Email'")
+     * @Assert\NotBlank(message="Veuillez remplir le champ 'Nom'")
      */
     private $name;
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\NotBlank(message="Veuillez remplir le champ 'Prénom'")
      */
     private $firstname;
 

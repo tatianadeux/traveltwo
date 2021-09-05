@@ -20,7 +20,31 @@
 
 </head>
 <body>
-<header></header>
+<header>
+    <nav class="nav" id="navTop">
+        <div class="divLogo">
+            <a href="{{ path('home_page') }}">
+                <img src="{{ asset('img/agence/logobeige.png') }}" alt="logo" class="w100">
+            </a>
+        </div>
+        <ul class="divLink navMenu">
+            <li>
+                <a href="{{ path('home_page') }}" class="navLink">Accueil</a>
+            </li>
+            <li>
+                <a href="{{ path('admin_home') }}" class="navLink">Liste des contenus</a>
+            </li>
+            <li>
+                <a href="{{ path('app_logout') }}" class="navLink">Déconnexion</a>
+            </li>
+        </ul>
+        <ul class="burger">
+            <li class="liNav"></li>
+            <li class="liNav"></li>
+            <li class="liNav"></li>
+        </ul>
+    </nav>
+</header>
 {% block main %}
 {% endblock %}
 <footer></footer>

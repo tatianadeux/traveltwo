@@ -1,0 +1,39 @@
+{% extends 'admin/admin_base.html.twig' %}
+
+{% block link %}
+    <link rel="stylesheet" href="{{ asset('css/admin_style.css') }}">
+{% endblock %}
+
+{% block metaTitle %} Liste des types d'article {% endblock %}
+
+{% block main %}
+    <section class="wAdmin">
+
+        <table class="table w100">
+            <thead>
+            <tr>
+                <th>Nom</th>
+                <th>Prénom</th>
+                <th>Email</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for user in users %}
+                <tr class="lineAdmin">
+                    <td class="titleCell">
+                        {#  <a href="{{ path('', {id : article.id}) }}" class="aTitle"></a>#}
+                        <h2 class="titleAdmin">{{ user.name }}</h2>
+
+                    </td>
+                    <td class="pCell">
+                        <p class="pAdmin">{{ user.firstname }}</p>
+                    </td>
+                    <td class="pCell">
+                        <p class="pAdmin">{{ user.email }}</p>
+                    </td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </section>
+{% endblock %}

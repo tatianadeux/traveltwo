@@ -9,6 +9,7 @@ use App\Repository\CategoryRepository;
 use App\Repository\FilterRepository;
 use App\Repository\MediaRepository;
 use App\Repository\TypeRepository;
+use App\Repository\UserRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
 
@@ -21,7 +22,8 @@ class AdminController extends AbstractController
                               TypeRepository $typeRepository,
                               FilterRepository $filterRepository,
                               CategoryRepository $categoryRepository,
-                              MediaRepository $mediaRepository){
+                              MediaRepository $mediaRepository,
+                              UserRepository $userRepository){
 
         /* affichage des 5 derniers articles-catégories-tags écrits
             recherche par id et du plus récent au plus ancien avec une limite de 5 */
@@ -30,13 +32,15 @@ class AdminController extends AbstractController
         $lastFilters = $filterRepository->findBy([], ['id'=>'DESC'], 5);
         $lastCategories = $categoryRepository->findBy([],['id'=>'DESC'],5);
         $lastMedias = $mediaRepository->findBy([], ['id'=>'DESC'], 5);
+        $lastUsers = $userRepository->findBy([],['id'=>'DESC'],5);
 
         return $this->render('admin/admin_home.html.twig', [
             'articles' => $lastArticles,
             'types' => $lastTypes,
             'filters' => $lastFilters,
             'categories' => $lastCategories,
-            'medias'=>$lastMedias
+            'medias'=>$lastMedias,
+            'users'=>$lastUsers
         ]);
     }
 

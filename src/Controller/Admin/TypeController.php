@@ -88,7 +88,7 @@ class TypeController extends AbstractController
     /**
      * @Route("/admin/types/update/{id}", name="admin_types_update", requirements={"id"="\d+"})
      */
-    public function updateTypeyAdmin(
+    public function updateTypeAdmin(
         $id,
         TypeRepository $typeRepository,
         Request $request,
@@ -122,14 +122,14 @@ class TypeController extends AbstractController
         EntityManagerInterface $entityManager)
     {
         $type = $typeRepository->find($id);
-
         $entityManager->remove($type);
         $entityManager->flush();
 
         $this->addFlash(
             'success',
-            'L\'article ' . $type->getName() . ' a bien été supprimé !'
+            'Le type d\'article ' . $type->getName() . ' a bien été supprimé !'
         );
+
 
         return $this->redirectToRoute('admin_types_list');
     }
