@@ -41,9 +41,15 @@
             <li>
                 <a href="{{ path('contact_page') }}" class="navLink">Contact</a>
             </li>
-            {# <li>
-                <a href="{{ path('user_login') }}" class="navLink">Mon espace</a>
-            </li> #}
+            {% if app.user is null %}
+                <li>
+                    <a href="{{ path('app_login') }}" class="navLink">Mon Espace</a>
+                </li>
+            {% else %}
+                <li>
+                    <a href="{{ path('app_logout') }}" class="navLink">Déconnexion</a>
+                </li>
+            {% endif %}
         </ul>
         <ul class="burger">
             <li class="liNav"></li>
@@ -71,13 +77,6 @@
             <li>
                 <a href="{{ path('contact_page') }}" class="navLink">Contact</a>
             </li>
-            {#
-            {% if app.user is null %}
-                <li>
-                    <a href="{{ path('user_login') }}" class="navLink">Connexion</a>
-                </li>
-            {% endif %}
-            #}
             <li>
                 <a href="{{ path('legal_page') }}" class="navLink">Mentions Légales</a>
             </li>
