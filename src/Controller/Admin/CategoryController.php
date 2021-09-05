@@ -56,7 +56,7 @@ class CategoryController extends AbstractController
             /* stocke en session un message flash qui sera affiché sur la page suivante */
             $this->addFlash(
                 'success',
-                'L\'article ' . $category->getName() . ' a bien été ajouté !'
+                'La catégorie "' . $category->getName() . '" a bien été ajoutée !'
             );
             /* pré-enregistrement des données et envoi en bdd */
             $entityManager->persist($category);
@@ -103,7 +103,7 @@ class CategoryController extends AbstractController
         if ($categoryForm->isSubmitted() && $categoryForm->isValid()) {
             $this->addFlash(
                 'success',
-                'L\'article ' . $category->getName() . ' a bien été modifié !'
+                'La catégorie "' . $category->getName() . '" a bien été modifiée !'
             );
             $entityManager->persist($category);
             $entityManager->flush();
@@ -130,7 +130,7 @@ class CategoryController extends AbstractController
 
         $this->addFlash(
             'success',
-            'L\'article ' . $category->getName() . ' a bien été supprimé !'
+            'La catégorie "' . $category->getName() . '" a bien été supprimée !'
         );
 
         return $this->redirectToRoute('admin_categories_list');

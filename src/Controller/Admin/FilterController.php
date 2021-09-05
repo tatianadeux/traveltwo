@@ -54,7 +54,7 @@ class FilterController extends AbstractController
             /* stocke en session un message flash qui sera affiché sur la page suivante */
             $this->addFlash(
                 'success',
-                'L\'article ' . $filter->getName() . ' a bien été ajouté !'
+                'Le filtre "' . $filter->getName() . '" a bien été ajouté !'
             );
             /* pré-enregistrement des données et envoi en bdd */
             $entityManager->persist($filter);
@@ -101,7 +101,7 @@ class FilterController extends AbstractController
         if ($filterForm->isSubmitted() && $filterForm->isValid()) {
             $this->addFlash(
                 'success',
-                'L\'article ' . $filter->getName() . ' a bien été modifié !'
+                'Le filtre "' . $filter->getName() . '" a bien été modifié !'
             );
             $entityManager->persist($filter);
             $entityManager->flush();
@@ -128,7 +128,7 @@ class FilterController extends AbstractController
 
         $this->addFlash(
             'success',
-            'L\'article ' . $filter->getName() . ' a bien été supprimé !'
+            'Le filtre "' . $filter->getName() . '" a bien été supprimé !'
         );
 
         return $this->redirectToRoute('admin_filters_list');

@@ -54,7 +54,7 @@ class TypeController extends AbstractController
             /* stocke en session un message flash qui sera affiché sur la page suivante */
             $this->addFlash(
                 'success',
-                'L\'article ' . $type->getName() . ' a bien été ajouté !'
+                'Le type d\'article ' . $type->getName() . ' a bien été ajouté !'
             );
             /* pré-enregistrement des données et envoi en bdd */
             $entityManager->persist($type);
@@ -101,7 +101,7 @@ class TypeController extends AbstractController
         if ($typeForm->isSubmitted() && $typeForm->isValid()) {
             $this->addFlash(
                 'success',
-                'L\'article ' . $type->getName() . ' a bien été modifié !'
+                'Le type d\'article ' . $type->getName() . ' a bien été modifié !'
             );
             $entityManager->persist($type);
             $entityManager->flush();
@@ -127,7 +127,7 @@ class TypeController extends AbstractController
 
         $this->addFlash(
             'success',
-            'Le type d\'article ' . $type->getName() . ' a bien été supprimé !'
+            'Le type d\'article "' . $type->getName() . '" a bien été supprimé !'
         );
 
 

@@ -81,7 +81,7 @@ class MediaController extends AbstractController
             /* stocke en session un message flash qui sera affiché sur la page suivante */
             $this->addFlash(
                 'success',
-                'L\'article ' . $media->getTitle() . ' a bien été ajouté !'
+                'Le média "' . $media->getTitle() . '" a bien été ajouté !'
             );
             /* pré-enregistrement des données et envoi en bdd */
             $entityManager->persist($media);
@@ -137,7 +137,7 @@ class MediaController extends AbstractController
 
             $this->addFlash(
                 'success',
-                'L\'article ' . $media->getTitle() . ' a bien été modifié !'
+                'Le média "' . $media->getTitle() . '" a bien été modifié !'
             );
             $entityManager->persist($media);
             $entityManager->flush();
@@ -164,7 +164,7 @@ class MediaController extends AbstractController
 
         $this->addFlash(
             'success',
-            'L\'article ' . $media->getTitle() . ' a bien été supprimé !'
+            'Le média "' . $media->getTitle() . '" a bien été supprimé !'
         );
 
         return $this->redirectToRoute('admin_medias_list');

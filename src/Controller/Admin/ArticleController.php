@@ -54,6 +54,11 @@ class ArticleController extends AbstractController
         if ($articleForm->isSubmitted()) {
             if($articleForm->isValid()) {
 
+                $this->addFlash(
+                    'success',
+                    'L\'article "' . $article->getTitle() . '" a bien été ajouté !'
+                );
+
               /*  $article->setDate(\DateTime::createFromFormat())*/
                 /* pré-enregistrement des données et envoi en bdd */
                 $entityManager->persist($article);
@@ -109,6 +114,11 @@ class ArticleController extends AbstractController
 
         if ($articleForm->isSubmitted() && $articleForm->isValid()) {
 
+            $this->addFlash(
+                'success',
+                'L\'article "' . $article->getTitle() . '" a bien été modifié !'
+            );
+
             $entityManager->persist($article);
             $entityManager->flush();
 
@@ -128,6 +138,11 @@ class ArticleController extends AbstractController
         EntityManagerInterface $entityManager)
     {
         $article = $articleRepository->find($id);
+
+        $this->addFlash(
+            'success',
+            'L\'article "' . $article->getTitle() . '" a bien été supprimé !'
+        );
 
         $entityManager->remove($article);
         $entityManager->flush();

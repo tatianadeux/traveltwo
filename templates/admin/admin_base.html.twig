@@ -45,8 +45,16 @@
         </ul>
     </nav>
 </header>
-{% block main %}
-{% endblock %}
+    <main>
+        {% for message in app.flashes('success') %}
+            <div class="flash-success">
+                {{ message }}
+            </div>
+        {% endfor %}
+        {% block main %}
+        {% endblock %}
+    </main>
+
 <footer></footer>
 <script src="{{ asset('js/script.js') }}"> </script>
 </body>
