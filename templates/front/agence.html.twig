@@ -1,0 +1,39 @@
+{% block link %} <link rel="stylesheet" href="{{ asset('css/contact_style.css') }}"> {% endblock %}
+{% extends 'base.html.twig' %}
+{% block main %}
+    <main class="mainContact">
+        <section class="textAgence">
+            <div class="divAgence">
+                <h2 class="helpTitle">Notre histoire</h2>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+                    labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco ex
+                    ea commodo consequat...
+                </p>
+            </div>
+            <div class="divAgence">
+                <h2 class="helpTitle">Nos engagements</h2>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+                    labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco ex
+                    ea commodo consequat...
+                </p>
+            </div>
+            <div class="divAgence">
+                <h2 class="helpTitle">Nos envies</h2>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+                    labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco ex
+                    ea commodo consequat...
+                </p>
+            </div>
+            <div class="divAgence">
+                <h2 class="helpTitle">Nos préférences</h2>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+                    labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco ex
+                    ea commodo consequat...
+                </p>
+            </div>
+        </section>
+        <div class="imgAgence">
+            <img src="{{ asset('img/agence/ordinateur.jpg') }}" alt="Image de l'agence" class="w100">
+        </div>
+    </main>
+{% endblock %}

@@ -1,0 +1,90 @@
+{% extends 'base.html.twig' %}
+
+{% block main %}
+    <main class="mainHome">
+        <h1 class="titleHome">Envie d'évasion ?</h1>
+        <form action="{{ path('searchBy') }}" method="get" class="row px-0 mx-0 justify-content-center">
+            {# section "Envie" #}
+            <section class="col-md-6 row">
+                <h2 class="tSelect">Je veux :</h2>
+                <div class="divActivity row mx-0 px-0 justify-content-center">
+                    {% if activities | length !=0  %}
+                        {% for activity in activities %}
+                            <div class="divSelect">
+                                <label for="{{ activity.name }}" class="">
+                                    <img src="{{ asset('img/icons/'~activity.name~'.png') }}" alt="" class="w100">
+                                    <span class="sName">{{ activity.name }}</span>
+                                </label>
+                                <input class="input" id="{{ activity.name }}" type="radio" name="ac" value="{{ activity.id }}">
+                            </div>
+                        {% endfor %}
+                    {% endif %}
+                </div>
+            </section>
+
+            {# section "Climat" #}
+            <section class="col-md-6 row">
+                <h2 class="tSelect">Je préfère un climat :</h2>
+                <div class="divClimat row mx-0 px-0 justify-content-center">
+                    {% if climats | length !=0 %}
+                        {% for climat in climats %}
+                            <div class="divSelect">
+                                <label for="{{ climat.name }}" class="flex-center">
+                                    <img src="{{ asset('img/icons/'~climat.name~'.png') }}" alt="" class="w100">
+                                    <span class="sName">{{ climat.name }}</span>
+                                </label>
+                                <input class="input" id="{{ climat.name }}" type="radio" name="cl" value="{{ climat.id }}">
+                            </div>
+                        {% endfor %}
+                    {% endif %}
+                </div>
+            </section>
+            <input class="col-6 col-md-2" id="btnSearch" type="submit" value="Rechercher">
+        </form>
+
+        {% if resultats | length !=0  %}
+            <section class="sectionResults">
+                <div class="row mx-0 px-0">
+                    <h2 class="col-12 tResultat">{{ resultats | length }} voyages correspondent à votre sélection : </h2>
+                    <div class="row divResultat">
+                        {% for resultat in resultats %}
+                            <div class="resultat-card">
+                                <a href="{{ path('resultat_show', {id : resultat.id}) }}" class="aResultat">
+                                    <div class="resultat-image">
+                                        {% if resultat.media is not null%}
+                                            {% for image in resultat.media %}
+                                                {% if image.type.name == "Card" %}
+                                                    <img src="{{ asset('img/destinations/'~image.image)  }}" alt="" class="w100">
+                                                {% endif %}
+                                            {% endfor %}
+                                        {% else %}
+                                            <img src="{{ asset('img/agence/home.jpg') }}" alt="" class="w100">
+
+                                        {% endif %}
+                                    </div>
+                                    <div class="resultat-description">
+                                        <h3 class="resultat-title">{{ resultat.title }} </h3>
+                                        <p class="resultat-capital"> {{ resultat.capital }}</p>
+                                    </div>
+                                </a>
+                            </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </section>
+            {% if resultats | length == 0 %}
+                <section class="sectionResults">
+                    <p>Nous ne trouvons aucune destination... </p>
+                </section>
+            {% endif %}
+        {% endif %}
+    </main>
+{% endblock %}
+
+{# <h2>Continent</h2>
+                    {% if continents | length !=0 %}
+                        {% for continent in continents %}
+                            <label for="{{ continent.name }}"> {{ continent.name }}</label>
+                            <input id="{{ continent.name }}" type="radio" name="co" value="{{ continent.id }}">
+                        {% endfor %}
+                    {% endif %}#}

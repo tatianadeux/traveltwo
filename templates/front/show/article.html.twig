@@ -1,0 +1,35 @@
+{% extends 'base.html.twig' %}
+
+{% block main %}
+    <main>
+        <section class="relative">
+            <div class="imgHeader relative">
+                {% for image in resultat.media %}
+                    {% if image.type.name == "Background" %}
+                        <img src="{{ asset('img/destinations/'~image.image) }}" alt="{{ image.description }}" class="">
+                    {% endif %}
+                {% endfor %}
+            </div>
+            <article class="divArticle w75">
+                <h1>{{ resultat.title }}</h1>
+                <p>{{ resultat.type.name }} / {{ resultat.filterContinent.name}}</p>
+                <h2>Coup d'oeil</h2>
+                <section class="sectionIcon">
+                    <div class="divIcon">
+                        <img src="{{ asset('img/icons/'~resultat.filterActivities.name~'.png') }}"
+                             alt="{{ resultat.filterActivities.description }}" class="w100">
+                        <p class="pIcon">{{ resultat.filterActivities.name}}</p>
+                    </div>
+                    <div class="divIcon">
+                        <img src="{{ asset('img/icons/'~resultat.filterClimat.name~'.png') }}"
+                             alt="{{ resultat.filterClimat.description }}" class="w100">
+                        <p class="pIcon">{{ resultat.filterClimat.name }}</p>
+                    </div>
+                </section>
+                <h2>Quelques lignes...</h2>
+                <p>{{ resultat.content }}</p>
+            </article>
+        </section>
+    </main>
+{% endblock %}
+

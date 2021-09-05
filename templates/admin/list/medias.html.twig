@@ -1,0 +1,63 @@
+{% extends 'admin/admin_base.html.twig' %}
+
+{% block link %}
+    <link rel="stylesheet" href="{{ asset('css/admin_style.css') }}">
+{% endblock %}
+
+{% block metaTitle %} Liste des médias {% endblock %}
+
+{% block main %}
+    <section class="wAdmin">
+        <a href="{{ path('admin_medias_add') }}" >
+            <div class="btnAdd">
+                <span class="material-icons">add_circle</span>
+                <p>Ajouter un média</p>
+            </div>
+        </a>
+        <table class="table">
+            <thead>
+            <tr>
+                <th>Titre</th>
+                <th>Description</th>
+                <th>Article lié</th>
+                <th>Type d'image</th>
+                <th>Actions</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for media in medias %}
+
+                <tr class="lineAdmin">
+                    <td class="titleCell">
+                        {#  <a href="{{ path('', {id : article.id}) }}" class="aTitle"></a>#}
+                        <h2 class="titleAdmin">{{ media.title }}</h2>
+
+                    </td>
+                    <td class="pCell">
+                        <p class="pAdmin">{{ media.description}}</p>
+                    </td>
+                    <td>
+                        {% if media.article %}
+                            <p>{{ media.article.title }}</p>
+                        {% endif %}
+                    </td>
+                    <td>
+                        {%if media.type%}
+                            <p>{{ media.type.name }}</p>
+                        {% endif %}
+                    </td>
+                    <td class="icons">
+                        <a href="{{ path('admin_medias_update', {id : media.id}) }}">
+                            <span class="material-icons iconsLink">update</span>
+                        </a>
+                        <a href="{{ path('admin_medias_delete', {id : media.id}) }}">
+                            <span class="material-icons iconsLink"> remove_circle </span>
+                        </a>
+                    </td>
+                </tr>
+            {% endfor %}
+
+            </tbody>
+        </table>
+    </section>
+{% endblock %}

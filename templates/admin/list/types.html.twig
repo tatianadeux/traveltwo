@@ -1,0 +1,53 @@
+{% extends 'admin/admin_base.html.twig' %}
+
+{% block link %}
+    <link rel="stylesheet" href="{{ asset('css/admin_style.css') }}">
+{% endblock %}
+
+{% block metaTitle %} Liste des types d'article {% endblock %}
+
+{% block main %}
+    <section class="wAdmin">
+        <a href="{{ path('admin_types_add') }}" >
+            <div class="btnCategory">
+                <span class="material-icons">add_circle</span>
+                <p>Ajouter un type d'article</p>
+            </div>
+        </a>
+        <table class="table w100">
+            <thead>
+            <tr>
+                <th>Titre</th>
+                <th>Description</th>
+                <th>Nombre d'Articles</th>
+                <th>Actions</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for type in types %}
+                <tr class="lineAdmin">
+                    <td class="titleCell">
+                        {#  <a href="{{ path('', {id : article.id}) }}" class="aTitle"></a>#}
+                        <h2 class="titleAdmin">{{ type.name }}</h2>
+
+                    </td>
+                    <td class="pCell">
+                        <p class="pAdmin">{{ type.description }}</p>
+                    </td>
+                    <td class="pCell">
+                        <p class="pAdmin">{{ type.articles | length }}</p>
+                    </td>
+                    <td class="icons">
+                        <a href="{{ path('admin_types_update', {id : type.id}) }}">
+                            <span class="material-icons iconsLink">update</span>
+                        </a>
+                        <a href="{{ path('admin_types_delete', {id : type.id}) }}">
+                            <span class="material-icons iconsLink"> remove_circle </span>
+                        </a>
+                    </td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </section>
+{% endblock %}

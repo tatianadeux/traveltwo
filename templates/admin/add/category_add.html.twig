@@ -1,0 +1,28 @@
+{% extends 'admin/admin_base.html.twig' %}
+{% block link %}
+    <link rel="stylesheet" href="{{ asset('css/form_style.css') }}">
+{% endblock %}
+
+{% block main %}
+    <main class="mainForm">
+        <section class="formAdd">
+            {{ form_start(categoryForm) }}
+            <h1 class="titleForm">Ajout de catégorie</h1>
+            <div class="formError">
+                {{ form_errors(categoryForm.name) }}
+            </div>
+            <div class="flex-between">
+                {{ form_label(categoryForm.name, 'Nom de la catégorie') }}
+                {{ form_widget(categoryForm.name, {'attr' : {'class' : 'formText'}}) }}
+            </div>
+            <div class="flex-between">
+                {{ form_label(categoryForm.description,'Description') }}
+                {{ form_widget(categoryForm.description, {'attr' : {'class' : 'formDesc'}}) }}
+            </div>
+            <div class="flex-end">
+                {{ form_widget(categoryForm.submit, {'attr' : {'class' : 'btnForm'}, 'label':'Ajouter'}) }}
+            </div>
+            {{ form_end(categoryForm) }}
+        </section>
+    </main>
+{% endblock %}

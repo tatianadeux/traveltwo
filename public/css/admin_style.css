@@ -1,0 +1,162 @@
+* {
+    margin : 0;
+    padding : 0;
+    box-sizing: border-box;
+    font-family: 'Quicksand', sans-serif;
+}
+
+.mainAdmin {
+    display: flex;
+}
+
+.navAdmin {
+    background-color: #030728;
+    height: 100vh;
+    width: 20%;
+    display: flex;
+    align-items: center;
+    position: fixed;
+    right: 0;
+}
+
+/* TITRES */
+.tAdmin {
+    text-transform: uppercase;
+    font-size: 1.3em;
+    color: #DCBFAB;
+    margin: 2% 0;
+}
+
+.welcomeAdmin {
+    width :100%;
+    text-transform: uppercase;
+    margin-bottom: 3%;
+    font-size: 2em;
+}
+
+/* SECTIONS */
+.sectionAdmin {
+    width: 80%;
+    padding: 5%;
+}
+
+.wAdmin {
+    width: 80%;
+    margin: 0 auto;
+    overflow: scroll;
+    min-height: 80vh;
+}
+
+/* LIENS */
+a {
+    /* color: #DCBFAB;*/
+    text-decoration: none;
+}
+
+
+.aAdmin {
+    display: block;
+    text-decoration: none;
+    color: #030728;
+    border: #030728 1px solid;
+    width: 30%;
+    margin: 20px 0;
+    padding: 10px 0;
+    border-radius: 10px;
+}
+
+.aNavAdmin {
+    color: #DCBFAB;
+    width:40%;
+}
+
+.aTitle {
+    color: #030728;
+    text-decoration: none;
+    font-size: 1em;
+}
+
+.iconsLink {
+    color : #030728;
+}
+
+.pGestion {
+    margin-left: 10px;
+}
+
+/* BOUTONS */
+.btnAdmin, .btnAdd, .btnCategory {
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    padding-left: 20px;
+}
+
+.btnAdd, .btnCategory {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    color: #DCBFAB;
+    background-color: #030728;
+    border-radius: 7px;
+    margin: 10px 0;
+    padding: 10px 0;
+    width:17%;
+}
+
+.btnCategory {
+    width:20%;
+}
+
+/* TABLEAUX */
+.table {
+    margin: 20px 0;
+}
+
+th {
+    background-color: #030728;
+    padding:20px;
+    text-transform: uppercase;
+    color: #DCBFAB;
+}
+
+tr:nth-child(2n) {
+    background-color: #DCBFAB;
+    border:1px black solid;
+    margin:20px;
+}
+
+td {
+    padding:20px;
+}
+
+.icons {
+    text-align: center;
+}
+
+.tableAdmin {
+    width : 100%;
+    text-align: center;
+}
+
+
+/* LISTES */
+
+ul {
+    list-style-type: none;
+    width: 15%;
+    margin-left: 30px;
+}
+
+/* PARAGRAPHES */
+.pAdmin {
+    padding: 0 10px;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    overflow: hidden;
+}
+
+
+/* CONNEXION PAGE */
+

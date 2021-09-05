@@ -1,0 +1,20 @@
+{% extends 'base.html.twig' %}
+{% block link %}<link rel="stylesheet" href="{{ asset('css/contact_style.css') }}"> {% endblock %}
+
+{% block main %}
+    <main>
+        <section class="mainLegal">
+            <h1 class="titleLegal text-center">Mentions légales & Politique de confidentialité</h1>
+            <p class="text-center">
+                Le site web TravelTwo, soucieux des droits des individus, notamment au regard des traitements automatisés et dans une volonté de transparence avec ses clients, a mis en place une politique reprenant l’ensemble de ces traitements, des finalités poursuivies par ces derniers ainsi que des moyens d’actions à la disposition des individus afin qu’ils puissent au mieux exercer leurs droits.
+
+                La poursuite de la navigation sur ce site vaut acceptation sans réserve des dispositions et conditions d’utilisatiosn qui suivent.
+
+
+                Pour toute information complémentaire sur la protection des données personnelles, nous vous invitions à consulter le site :
+                <a href="https://www.cnil.fr/" class="linkLegal">https://www.cnil.fr/</a>
+
+            </p>
+        </section>
+    </main>
+{% endblock %}

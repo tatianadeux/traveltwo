@@ -1,0 +1,33 @@
+{% extends 'admin/admin_base.html.twig' %}
+{% block link %}
+    <link rel="stylesheet" href="{{ asset('css/form_style.css') }}">
+{% endblock %}
+
+{% block main %}
+    <main class="mainForm">
+        <section class="formAdd">
+            {{ form_start(typeForm) }}
+            <h1 class="titleForm">Ajout d'un type d'article</h1>
+            <div class="formError">
+                {{ form_errors(typeForm.name) }}
+            </div>
+            <div class="flex-between">
+                {{ form_label(typeForm.name, 'Nom') }}
+                {{ form_widget(typeForm.name, {'attr' : {'class' : 'formText'}}) }}
+            </div>
+            <div class="flex-between">
+                {{ form_label(typeForm.description, 'Description') }}
+                {{ form_widget(typeForm.description, {'attr' : {'class' : 'formDesc'}}) }}
+            </div>
+            <div class="flex-between">
+                {{ form_label(typeForm.date, null, {'label' : 'Date de création', 'label_attr' : {'class' : 'labelDate'}}) }}
+                {{ form_widget(typeForm.date, {'attr' : {'class' :'formDate w70'}}) }}
+            </div>
+            <div class="flex-end">
+                {{ form_widget(typeForm.submit, {'attr' : {'class' : 'btnForm'}, 'label' : 'Ajouter'}) }}
+            </div>
+            {{ form_end(typeForm) }}
+        </section>
+
+    </main>
+{% endblock %}

@@ -1,0 +1,49 @@
+{% extends 'admin/admin_base.html.twig' %}
+
+{% block link %}
+    <link rel="stylesheet" href="{{ asset('css/admin_style.css') }}">
+{% endblock %}
+
+{% block metaTitle %} Liste des catégories {% endblock %}
+
+{% block main %}
+    <section class="wAdmin">
+        <a href="{{ path('admin_categories_add') }}" >
+            <div class="btnCategory">
+                <span class="material-icons">add_circle</span>
+                <p>Ajouter une catégorie</p>
+            </div>
+        </a>
+        <table class="table w100">
+            <thead>
+            <tr>
+                <th>Titre</th>
+                <th>Description</th>
+                <th>Actions</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for category in categories %}
+                <tr class="lineAdmin">
+                    <td class="titleCell">
+                        {#  <a href="{{ path('', {id : article.id}) }}" class="aTitle"></a>#}
+                        <h2 class="titleAdmin">{{ category.name }}</h2>
+
+                    </td>
+                    <td class="pCell">
+                        <p class="pAdmin">{{ category.description }}</p>
+                    </td>
+                    <td class="icons">
+                        <a href="{{ path('admin_categories_update', {id : category.id}) }}">
+                            <span class="material-icons iconsLink">update</span>
+                        </a>
+                        <a href="{{ path('admin_categories_delete', {id : category.id}) }}">
+                            <span class="material-icons iconsLink"> remove_circle </span>
+                        </a>
+                    </td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </section>
+{% endblock %}

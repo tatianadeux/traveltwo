@@ -1,0 +1,43 @@
+{% extends 'admin/admin_base.html.twig' %}
+{% block link %}
+    <link rel="stylesheet" href="{{ asset('css/form_style.css') }}">
+{% endblock %}
+
+{% block main %}
+    <main class="mainForm">
+        <section class="formAdd">
+            {{ form_start(mediaForm) }}
+            <h1 class="titleForm">Ajout d'image</h1>
+            <div class="formError">
+                {{ form_errors(mediaForm.title) }}
+            </div>
+            <div class="flex-between">
+                {{ form_label(mediaForm.title, "Titre") }}
+                {{ form_widget(mediaForm.title, {'attr' : {'class' : 'formText'}}) }}
+            </div>
+            <div class="flex-between">
+                {{ form_label(mediaForm.description, "Description de l'image") }}
+                {{ form_widget(mediaForm.description, {'attr' : {'class' : 'formDesc'}}) }}
+            </div>
+            <div class="flex-between">
+                {{ form_label(mediaForm.article, "Article relié") }}
+                {{ form_widget(mediaForm.article, {'attr' : {'class' : 'formSelect'}}) }}
+            </div>
+            <div class="flex-between">
+                {{ form_label(mediaForm.type, "Type d'image") }}
+                {{ form_widget(mediaForm.type, {'attr' : {'class' : 'formSelect'}}) }}
+            </div>
+            <div class="flex-between">
+                {{ form_label(mediaForm.image, 'Image') }}
+                {{ form_widget(mediaForm.image, {'attr' : {'class' : 'w70'}}) }}
+            </div>
+            <div class="flex-end">
+                {{ form_widget(mediaForm.submit,  {'attr' : {'class' : 'btnForm'}, 'label':'Ajouter'}) }}
+            </div>
+
+
+            {{ form_end(mediaForm) }}
+        </section>
+    </main>
+
+{% endblock %}

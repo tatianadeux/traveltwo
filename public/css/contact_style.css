@@ -1,0 +1,163 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background-color: #030728;
+    font-family: 'Quicksand', sans-serif;
+    color: #DCBFAB;
+
+}
+
+.text-center {
+    text-align: center;
+}
+
+/* PAGE AGENCE */
+.textAgence {
+    align-content: space-evenly;
+    align-items: center;
+}
+
+.divAgence {
+    margin: 10px 0;
+}
+.mainContact {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.imgContact, .helpContact, .textAgence, .imgAgence {
+    width:40%;
+    display: flex;
+    flex-direction: column;
+}
+
+/* PAGE CONTACT */
+.formContact {
+    display: flex;
+    flex-direction: column;
+}
+
+.help {
+    padding:20px 0;
+}
+
+.helpTitle, .titleLegal {
+    text-transform: uppercase;
+    margin: 15px 0;
+}
+
+.fieldContact {
+    width: 100%;
+    height:40px;
+    border: 1px #DCBFAB solid;
+    border-radius: 20px;
+    margin: 10px 0;
+    resize: none;
+    padding-left: 18px;
+    font-size: 14px;
+
+}
+
+.fieldMessage {
+    height: 100px;
+    border-radius: 30px;
+}
+
+.fieldContact::placeholder, #contactMessage {
+    font-style: oblique;
+    color: #DCBFAB;
+    padding-top: 10px;
+}
+
+.divName {
+    display: flex;
+    justify-content: space-between;
+}
+.fieldName {
+    width:45%;
+}
+
+#btnSubmit {
+    width: 20%;
+    height: 30px;
+    background-color: #DCBFAB;
+    color: #030728;
+    border: 1px solid #030728;
+    font-weight: bold;
+    border-radius: 20px;
+    cursor: pointer;
+}
+
+#btnSubmit:hover {
+    background-color: #030728;
+    color:#DCBFAB;
+    border: 1px #DCBFAB solid;
+}
+
+
+/* PAGE MENTIONS LEGALES */
+.mainLegal {
+    width: 80%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    min-height: 70vh;
+}
+
+.titleLegal {
+    margin: 5% 0;
+}
+
+.linkLegal {
+    text-decoration: none;
+    color: #DCBFAB;
+    cursor: pointer;
+}
+
+.linkLegal:hover {
+    color: #F7F7F7;
+}
+
+@media screen and (max-width: 767px){
+    .imgAgence, .imgContact {
+        display: none;
+    }
+
+    .textAgence, .helpContact {
+        width: 80%;
+        text-align: justify;
+    }
+
+    .divName {
+        flex-direction: column;
+    }
+
+    .fieldName {
+        width: 100%;
+    }
+
+    #btnSubmit {
+        width: unset;
+        height: 35px;
+    }
+}
+
+@media screen and (min-width: 768px) and (max-width: 1199px){
+    .mainContact {
+        align-items: flex-start;
+        min-height: 70vh;
+    }
+
+    .help {
+        padding: 0;
+    }
+
+    #btnSubmit {
+        width: 40%;
+        margin: 10px auto;
+        height: 40px;
+    }
+}
+

@@ -1,0 +1,33 @@
+{% extends 'admin/admin_base.html.twig' %}
+{% block link %}
+    <link rel="stylesheet" href="{{ asset('css/form_style.css') }}">
+{% endblock %}
+
+{% block main %}
+    <main class="mainForm">
+        <section class="formAdd">
+            {{ form_start(filterForm) }}
+            <h1 class="titleForm">Ajout d'un filtre</h1>
+            <div class="formError">
+                {{ form_errors(filterForm.name) }}
+            </div>
+            <div class="flex-between">
+                {{ form_label(filterForm.name, 'Nom du Filtre') }}
+                {{ form_widget(filterForm.name, {'attr' : {'class' : 'formText'}}) }}
+            </div>
+            <div class="flex-between">
+                {{ form_label(filterForm.description, 'Descriptrion') }}
+                {{ form_widget(filterForm.description, {'attr' : {'class' : 'formDesc'}}) }}
+            </div>
+            <div class="flex-between">
+                {{ form_label(filterForm.category, 'Catégorie') }}
+                {{ form_widget(filterForm.category, {'attr' : {'class' : 'formSelect'}}) }}
+            </div>
+            <div class="flex-end">
+                {{ form_widget(filterForm.submit, {'attr' : {'class' : 'btnForm'}, 'label' : 'Ajouter'}) }}
+            </div>
+            {{ form_end(filterForm) }}
+        </section>
+    </main>
+
+{% endblock %}

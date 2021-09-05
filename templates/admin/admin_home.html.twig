@@ -1,0 +1,159 @@
+{% extends 'admin/admin_base.html.twig' %}
+
+{% block link %}
+<link rel="stylesheet" href="{{ asset('css/admin_style.css') }}">
+{% endblock %}
+
+{% block main %}
+    <main class="mainAdmin">
+        <section class="sectionAdmin">
+           <h1 class="welcomeAdmin">Bienvenue, Administrateur {# {{ app.user.userIdentifier }}#} </h1>
+            <h2 class="tAdmin">Gestion</h2>
+            <div>
+                <a href="{{ path('admin_articles_list') }}" class="aAdmin">
+                    <div class="btnAdmin">
+                        <span class="material-icons">cached</span>
+                        <p class="pGestion"> Gestion des articles</p>
+                    </div>
+                </a>
+                <table class="tableAdmin">
+                    <thead>
+                    <th>N°</th>
+                    <th>Titre</th>
+                    <th>Capitale</th>
+                    <th>Type d'article</th>
+                    <th>Date</th>
+                    </thead>
+                    <tbody>
+                    {% for article in articles %}
+                        <tr>
+                            <td>{{ article.id }}</td>
+                            <td>{{ article.title }}</td>
+                            <td>{{ article.capital }}</td>
+                            <td>{{ article.type.name }}</td>
+                            <td>{{ article.date |date('d-m-y') }}</td>
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+            <div>
+                <a href="{{ path('admin_categories_list') }}" class="aAdmin">
+                    <div class="btnAdmin">
+                        <span class="material-icons">cached</span>
+                        <p class="pGestion"> Gestion des catégories</p>
+                    </div>
+                </a>
+                <table class="tableAdmin">
+                    <thead>
+                    <th>N°</th>
+                    <th>Titre</th>
+                    <th>Nombre de Filtres</th>
+                    </thead>
+                    <tbody>
+                    {% for category in categories %}
+                        <tr>
+                            <td>{{ category.id }}</td>
+                            <td>{{ category.name }}</td>
+                            <td>{{ category.filters | length }}</td>
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+
+            <div>
+                <a href="{{ path('admin_filters_list') }}" class="aAdmin">
+                    <div class="btnAdmin">
+                        <span class="material-icons">cached</span>
+                        <p class="pGestion"> Gestion des filtres</p>
+                    </div>
+                </a>
+                <table class="tableAdmin">
+                    <thead>
+                    <th>N°</th>
+                    <th>Titre</th>
+                    <th>Catégorie</th>
+                    </thead>
+                    <tbody>
+                    {% for filter in filters %}
+                        <tr>
+                            <td>{{ filter.id }}</td>
+                            <td>{{ filter.name }}</td>
+                            <td>{{ filter.category.name  }}</td>
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+
+            <div>
+                <a href="{{ path('admin_medias_list') }}" class="aAdmin">
+                    <div class="btnAdmin">
+                        <span class="material-icons">cached</span>
+                        <p class="pGestion"> Gestion des médias</p>
+                    </div>
+                </a>
+                <table class="tableAdmin">
+                    <thead>
+                    <th>N°</th>
+                    <th>Titre</th>
+                    <th>Description</th>
+                    <th>Type de média</th>
+                    </thead>
+                    <tbody>
+                    {% for media in medias %}
+                        <tr>
+                            <td>{{ media.id }}</td>
+                            <td>{{ media.title }}</td>
+                            <td>{{ media.description }}</td>
+                            <td>{{ media.type.name }}</td>
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+
+            <div>
+                <a href="{{ path('admin_types_list') }}" class="aAdmin">
+                    <div class="btnAdmin">
+                        <span class="material-icons">cached</span>
+                        <p class="pGestion"> Gestion des types d'article</p>
+                    </div>
+                </a>
+                <table class="tableAdmin">
+                    <thead>
+                    <th>N°</th>
+                    <th>Titre</th>
+                    <th>Date</th>
+                    </thead>
+                    <tbody>
+                    {% for type in types %}
+                        <tr>
+                            <td>{{ type.id }}</td>
+                            <td>{{ type.name }}</td>
+                            <td>{{ type.date | date('d-m-y') }}</td>
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+
+
+        </section>
+       {#<nav class="navAdmin">
+            <ul>
+                <li class="navLink">
+                    <a href="{{ path('admin_logged') }}" class="aNavAdmin">
+                        <span class="material-icons">home</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="{{ path('admin_logout') }}" class="aNavAdmin">
+                        <span class="material-icons">logout</span>
+                    </a>
+                </li>
+            </ul>
+        </nav> #}
+    </main>
+{% endblock %}

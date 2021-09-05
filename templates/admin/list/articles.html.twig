@@ -1,0 +1,77 @@
+{% extends 'admin/admin_base.html.twig' %}
+
+{% block link %}
+    <link rel="stylesheet" href="{{ asset('css/admin_style.css') }}">
+{% endblock %}
+
+{% block title %} Liste des articles {% endblock %}
+
+{% block main %}
+    <section class="wAdmin">
+        <a href="{{ path('admin_articles_add') }}" >
+            <div class="btnAdd">
+                <span class="material-icons">add_circle</span>
+                <p>Ajouter un article</p>
+            </div>
+        </a>
+        <table class="table">
+            <thead>
+            <tr>
+                <th>Titre</th>
+                <th>Description</th>
+                <th>Continent</th>
+                <th>Climat</th>
+                <th>Activités</th>
+                <th>Type d'article</th>
+                <th>Date d'ajout</th>
+                <th>Actions</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for article in articles %}
+                <tr class="lineAdmin">
+                    <td class="titleCell">
+                        <a href="{{ path('admin_articles_read', {id : article.id}) }}" class="aTitle">
+                            <h2 class="titleAdmin">{{ article.title }}</h2>
+                        </a>
+                    </td>
+                    <td class="pCell">
+                        <p class="pAdmin">{{ article.content }}</p>
+                    </td>
+                    <td>
+                        {%if article.filterContinent%}
+                            <p>{{ article.filterContinent.name }}</p>
+                        {% endif %}
+                    </td>
+                    <td>
+                        {%if article.filterClimat%}
+                            <p>{{ article.filterClimat.name }}</p>
+                        {% endif %}
+                    </td>
+                    <td>
+                        {%if article.filterActivities %}
+                            <p>{{ article.filterActivities.name }}</p>
+                        {% endif %}
+                    </td>
+                    <td>
+                        {%if article.type  %}
+                            <p>{{ article.type.name }}</p>
+                        {% endif %}
+                    </td>
+                    <td class="dateAdmin">
+                        <p>{{ article.date | date('d-m-y') }}</p>
+                    </td>
+                    <td class="icons">
+                        <a href="{{ path('admin_articles_update', {id : article.id}) }}">
+                            <span class="material-icons iconsLink">update</span>
+                        </a>
+                        <a href="{{ path('admin_articles_delete', {id : article.id}) }}">
+                            <span class="material-icons iconsLink"> remove_circle </span>
+                        </a>
+                    </td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </section>
+{% endblock %}

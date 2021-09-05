@@ -1,0 +1,252 @@
+* {
+    margin: 0;
+    padding:0;
+    box-sizing: border-box;
+    font-family: 'Quicksand', sans-serif;
+}
+
+.w70 {
+    width:70%;
+}
+
+.w100 {
+    width:100%
+}
+
+.mainConnexion, .mainForm {
+    padding: 50px 0;
+}
+
+.logoConnexion, .logoForm {
+    width: 12%;
+    margin:10px 0;
+}
+
+.titleConnexion, .titleIns, .titleForm {
+    font-size: 30px;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+.titleIns {
+    margin-bottom: 20px;
+}
+
+.flex-between, .flex-right, .flex-end {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 20px 0;
+}
+
+.flex-right {
+    justify-content: right;
+}
+
+.flex-end {
+    justify-content: flex-end;
+}
+
+.labelDate {
+    margin-right: 50px;
+}
+.formError {
+    font-style: italic;
+    color: #B0413E;
+    margin: 15px auto;
+}
+
+.formError li {
+    color: #B0413E;
+    list-style-type: none;
+}
+
+.formClient, .formAdmin, .formAdd {
+    width : 40%;
+    margin:20px auto;
+    display: flex;
+    flex-direction: column;
+    min-height: 55vh;
+}
+
+.divNameClient {
+    display: flex;
+    justify-content: space-between;
+}
+
+.formIns {
+    margin: 10px 0;
+    border-radius: 20px;
+    border: 1px solid #DCBFAB;
+    background-color: #F7F7F7;
+    height: 40px;
+    padding-left: 10px;
+    color: #030728;
+    width: 100%;
+}
+
+.nameClient {
+    width:45%;
+}
+
+.formIns::placeholder {
+    color: #030728;
+}
+
+.divBtn {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+.btnConnexion, .btnIns, .btnForm {
+    width:30%;
+    background-color: #030728;
+    color: #DCBFAB;
+    border: 2px solid #030728;
+    border-radius: 20px;
+    height: 40px;
+    cursor: pointer;
+    margin: 10px 0;
+}
+
+.btnForm {
+    font-size: 1.1em;
+    font-weight: 600;
+    width: 23%;
+}
+
+.btnIns:hover, .btnForm:hover {
+    background-color: #DCBFAB;
+    color: #030728;
+}
+
+#btnAdmin {
+    margin: 10px auto;
+}
+
+.linkHome {
+    display: block;
+}
+
+.linkConnexion, .linkHome, .pConnexion {
+    color: #030728;
+    font-size: 14px;
+    text-align: center;
+    margin: 10px 0;
+}
+
+.linkIns, .pConnexion {
+    text-decoration: none;
+    font-size: 16px;
+    text-align: center;
+}
+
+.sConnexion {
+    width: 40%;
+    height: 200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.aConnexion {
+    display: inline-block;
+    text-decoration: none;
+    color: #030728;
+    font-size: 18px;
+}
+
+.aConnexion:hover {
+    color: #DCBFAB;
+}
+
+.traitConnexion {
+    border: #e4e4e4 1px solid;
+    height: 75%;
+}
+
+.formText, .formDesc, .formDate>select, .formSelect {
+    width: 70%;
+    background-color: #F7F7F7;
+    border: 1px solid #DCBFAB;
+    height: 25px;
+    color: #030728;
+}
+
+.formDesc {
+    height: 90%;
+    padding: 10px 0;
+    resize: none;
+}
+
+.formDate>select {
+    width: 30%;
+}
+
+
+@media screen and (max-width: 767px){
+    .logoConnexion {
+        width : 20%;
+    }
+
+    .mainConnexion, .mainForm {
+        min-height: 50vh;
+    }
+
+    .titleConnexion, .titleIns, .titleForm {
+        font-size: 20px;
+        margin-bottom: 35px;
+    }
+
+    .aConnexion {
+        display: block;
+        width: 60%;
+        text-align: center;
+        height: 40px;
+        line-height: 40px;
+        margin: 20px auto;
+        border: #DCBFAB 1px solid;
+        border-radius: 30px;
+    }
+    .sConnexion {
+        width: 60%;
+        display: unset;
+    }
+
+    .traitConnexion {
+        display: none;
+    }
+
+    .linkHome {
+        margin: 20px 0;
+    }
+
+    .formClient, .formAdmin {
+        width: 60%;
+    }
+
+    .divBtn {
+        flex-direction: column-reverse;
+    }
+
+    .btnConnexion {
+        width: 100%;
+    }
+
+    .divNameClient {
+        flex-direction: column;
+    }
+
+    .nameClient {
+        width: 100%;
+    }
+
+    .btnIns {
+        width: 100%;
+    }
+}
+
+
+

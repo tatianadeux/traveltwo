@@ -1,0 +1,53 @@
+{% extends 'admin/admin_base.html.twig' %}
+{% block link %}
+    <link rel="stylesheet" href="{{ asset('css/form_style.css') }}">
+{% endblock %}
+
+{% block main %}
+    <main class="mainForm">
+        <section class="formAdd">
+            {{ form_start(articleForm) }}
+            <h1 class="titleForm">Ajout d'article</h1>
+            <div class="formError">
+                {{ form_errors(articleForm.title) }}
+            </div>
+            <div class="flex-between">
+                {{ form_label(articleForm.title, 'Titre') }}
+                {{ form_widget(articleForm.title, {'attr' : {'class' : 'formText'}}) }}
+            </div>
+            <div class="flex-between">
+                {{ form_label(articleForm.capital, 'Capitale') }}
+                {{ form_widget(articleForm.capital, {'attr' : {'class' : 'formText'}}) }}
+            </div>
+            <div class="flex-between">
+                {{ form_label(articleForm.content, 'Description') }}
+                {{ form_widget(articleForm.content, {'attr' : {'class' : 'formDesc'}}) }}
+            </div>
+            <div class="flex-right">
+                {{ form_label(articleForm.date, null, {'label' : 'Date de création', 'label_attr' : {'class' : 'labelDate'}} ) }}
+                {{ form_widget(articleForm.date, {'attr' : {'class' : 'formDate w70'}}) }}
+            </div>
+            <div class="flex-between">
+                {{ form_label(articleForm.type, 'Type d\'article') }}
+                {{ form_widget(articleForm.type, {'attr' : {'class' : 'formSelect'}}) }}
+            </div>
+            <div class="flex-between">
+                {{ form_label(articleForm.filter_continent, 'Continent') }}
+                {{ form_widget(articleForm.filter_continent, {'attr': {'class':'formSelect '}}) }}
+            </div>
+            <div class="flex-between">
+                {{ form_label(articleForm.filter_climat, 'Climat') }}
+                {{ form_widget(articleForm.filter_climat, {'attr' : {'class': 'formSelect'}}) }}
+            </div>
+            <div class="flex-between">
+                {{ form_label(articleForm.filter_activities, 'Activité') }}
+                {{ form_widget(articleForm.filter_activities, {'attr' : {'class' : 'formSelect'}}) }}
+            </div>
+            <div class="flex-end">
+                {{ form_widget(articleForm.submit, {'attr' : {'class' : 'btnForm'}, 'label':'Ajouter'}) }}
+            </div>
+
+            {{ form_end(articleForm) }}
+        </section>
+    </main>
+{% endblock %}

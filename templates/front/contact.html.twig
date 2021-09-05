@@ -1,0 +1,30 @@
+{% extends 'base.html.twig' %}
+{% block link %}<link rel="stylesheet" href="{{ asset('css/contact_style.css') }}"> {% endblock %}
+
+{% block main %}
+    <main class="mainContact">
+        <div class="imgContact">
+            <img src="{{ asset('img/agence/agence2.jpg') }}" alt="Image d'un lac au Canada" class="w100">
+        </div>
+        <section class="helpContact">
+            <div class="help">
+                <h2 class="helpTitle">Besoin d'aide ?</h2>
+                <p>Nous sommes à votre disposition pour toute information complémentaire.</p>
+            </div>
+            <div class="help form">
+                <h2 class="helpTitle">Contactez-nous</h2>
+                <form action="" method="post" class="formContact">
+                    <div class="divName">
+                        <input type="text" placeholder="Votre nom" name="nom" class="fieldContact fieldName" maxlength="30">
+                        <input type="text" placeholder="Votre prénom" name="prenom" class="fieldContact fieldName" maxlength="30">
+                    </div>
+                    <input type="text" placeholder="Votre email" name="email" class="fieldContact fieldEmail" maxlength="100">
+                    <input type="text" placeholder="L'objet de votre message" name="objet" class="fieldContact" maxlength="100">
+                    <textarea name="message" id="contactMessage" class="fieldContact fieldMessage">Votre message</textarea>
+                    <input type="submit" id="btnSubmit">
+                </form>
+            </div>
+        </section>
+    </main>
+{% endblock %}
+

@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Tatiana Deux">
+    <meta name="description" content="En sélectionnant des filtres, l'utilisateur obtient un choix de voyages">
+    <meta name="keywords" content="Voyage, Filtres">
+    <meta name="robots" content="noindex, nofollow">
+
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="{{ asset('css/page_style.css') }}">
+    {% block link %} {% endblock %}
+    <title>{% block title %} {% endblock %}- Travel Two</title>
+
+</head>
+<body>
+<header class="header">
+    <nav class="nav" id="navTop">
+       <div class="divLogo">
+        <a href="{{ path('home_page') }}">
+            <img src="{{ asset('img/agence/logobeige.png') }}" alt="logo" class="w100">
+        </a>
+    </div>
+        <ul class="divLink navMenu">
+            <li>
+                <a href="{{ path('home_page') }}" class="navLink">Accueil</a>
+            </li>
+            <li>
+                <a href="{{ path('agence_page') }}" class="navLink">L'Agence</a>
+            </li>
+            <li>
+                <a href="{{ path('blog_page') }}" class="navLink">Blog</a>
+            </li>
+            <li>
+                <a href="{{ path('contact_page') }}" class="navLink">Contact</a>
+            </li>
+            {# <li>
+                <a href="{{ path('user_login') }}" class="navLink">Mon espace</a>
+            </li> #}
+        </ul>
+        <ul class="burger">
+            <li class="liNav"></li>
+            <li class="liNav"></li>
+            <li class="liNav"></li>
+        </ul>
+    </nav>
+
+</header>
+{% block main %}
+{% endblock %}
+<footer class="footer w100">
+    <nav class="navBottom" id="navMap">
+        <div class=" titleLink">Plan du Site</div>
+        <ul class="divLink" id="mapList">
+            <li>
+                <a href="{{ path('home_page') }}" class="navLink">Accueil</a>
+            </li>
+            <li>
+                <a href="{{ path('agence_page') }}" class="navLink">L'agence</a>
+            </li>
+            <li>
+                <a href="{{ path('blog_page') }}" class="navLink">Blog</a>
+            </li>
+            <li>
+                <a href="{{ path('contact_page') }}" class="navLink">Contact</a>
+            </li>
+            {#
+            {% if app.user is null %}
+                <li>
+                    <a href="{{ path('user_login') }}" class="navLink">Connexion</a>
+                </li>
+            {% endif %}
+            #}
+            <li>
+                <a href="{{ path('legal_page') }}" class="navLink">Mentions Légales</a>
+            </li>
+        </ul>
+    </nav>
+    <nav class="navBottom" id="navSocial">
+        <div class="titleLink">Retrouvez-nous</div>
+        <ul class="divLink socialMedias">
+            <li class="imgSocial">
+                <img src="{{ asset('img/icons/twitter.png') }}" alt="logo Twitter" class="w100">
+            </li>
+            <li class="imgSocial">
+                <img src="{{ asset('img/icons/instagram.png') }}" alt="logo Instagram" class="w100">
+            </li>
+            <li class="imgSocial">
+                <img src="{{ asset('img/icons/youtube.png') }}" alt="logo Youtube" class="w100">
+            </li>
+        </ul>
+    </nav>
+</footer>
+<script src="{{ asset('js/script.js') }}"> </script> 
+</body>
+</html>
